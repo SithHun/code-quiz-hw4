@@ -1,15 +1,62 @@
+/* Universal Box Sizing */
 * {
-    box-sizing: border-box
-}
-.header {
-    display: inline-flexbox
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.header div {
+/* Header Formating */
+.header {
+    border: 1px darkred solid;
+    padding: 25px;
+    margin: 35px;
+}
+
+.highscores {
     display: inline-block;
 }
 
-.timer ul {
+.timer {
     list-style-type: none;
-    flex-direction: end;
+    float: right;
+}
+
+/* Are You Ready? */
+
+.container1 {
+    /* border: red solid 1px; */
+    padding: 0;
+    margin: 5px;
+    text-align: center;
+    font-size: 35px;
+}
+
+.container2 {
+    /* border: red solid 1px; */
+    display: flexbox;
+    font-size: 25px;
+    text-align: center;
+    padding: 0;
+    margin: 0px 180px 0px 180px;
+    display: none;
+}
+
+button {
+    background-color: yellow;
+    width: 100px;
+    height: 30px;
+    font-size: 25px;
+    box-shadow: 2px 2px;
+}
+
+button:hover {
+    box-shadow: none;
+    background-color: darkgoldenrod;
+
+}
+
+.choices {
+    text-align: left;
+    border: blue solid 2px;
+    font-size: larger;
 }
