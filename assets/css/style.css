@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box
+}
+.header {
+    display: inline-flexbox
+}
+
+.header div {
+    display: inline-block;
+}
+
+.timer ul {
+    list-style-type: none;
+    flex-direction: end;
+}
