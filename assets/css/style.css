@@ -5,11 +5,17 @@
     padding: 0;
 }
 
+main {
+    display: flexbox;
+
+}
+
 /* Header Formating */
 .header {
-    border: 1px darkred solid;
+    border: 1px goldenrod solid;
     padding: 25px;
     margin: 35px;
+    background-color: wheat;
 }
 
 .highscores {
@@ -21,28 +27,36 @@
     float: right;
 }
 
-/* Are You Ready? */
+/* Container Formatting */
 
-.container1 {
-    /* border: red solid 1px; */
+.container {
     padding: 0;
     margin: 5px;
     text-align: center;
     font-size: 35px;
 }
 
-.container2 {
-    /* border: red solid 1px; */
+/* Questions Formatting */
+.question1,
+.question2,
+.question3,
+.question4,
+.question5,
+.question6,
+.question7,
+.question8,
+.question9,
+.question10 {
     display: flexbox;
     font-size: 25px;
     text-align: center;
     padding: 0;
     margin: 0px 180px 0px 180px;
-    display: none;
 }
 
+/* Button Formatting */
 button {
-    background-color: yellow;
+    background-color: white;
     width: 100px;
     height: 30px;
     font-size: 25px;
@@ -51,12 +65,31 @@ button {
 
 button:hover {
     box-shadow: none;
-    background-color: darkgoldenrod;
+    background-color: wheat;
 
 }
 
+/* Choices Formatting, Border */
 .choices {
     text-align: left;
-    border: blue solid 2px;
     font-size: larger;
+}
+
+.choice1,
+.choice2,
+.choice3,
+.choice4 {
+    border: goldenrod solid 3px;
+    margin: 25px 0px 0px 0px;
+    text-justify: ;
+    padding: 8px;
+    box-shadow: 2px 1px 1px goldenrod;
+}
+
+.choice1:hover,
+.choice2:hover,
+.choice3:hover,
+.choice4:hover {
+    box-shadow: none;
+    background-color: wheat;
 }
