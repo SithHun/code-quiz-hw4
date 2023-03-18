@@ -141,6 +141,7 @@ function clear() {
     localStorage.clear();
     score = 0;
     resultscontainerEl.innerText = "Your score is " + score;
+    timerEl.innerText = "Time: ";
 }
 
 //------------Start Over--------------
@@ -156,4 +157,17 @@ function retry() {
 
 }
 
-//----------Wrong/Correct Messages----------
+//----------Leaderboard Submission----------
+const submissionEl = document.getElementById('submission');
+const formEl = document.getElementById('form');
+const leaderboardEl = document.getElementById('leaderboard');
+
+submissionEl.addEventListener('click', submit);
+
+function submit() {
+    event.preventDefault();
+    formEl.style.display = "none";
+    resultscontainerEl.style.display = "none";
+    leaderboardEl.style.display = "";
+
+}
