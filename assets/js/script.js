@@ -1,79 +1,72 @@
-var startEl = document.querySelector('.start');
-var containerEl = document.querySelector('.container');
-var question1El = document.querySelector('.question1');
-var question2El = document.querySelector('.question2');
-var question3El = document.querySelector('.question3');
-var question4El = document.querySelector('.question4');
-var question5El = document.querySelector('.question5');
-var question6El = document.querySelector('.question6');
-var question7El = document.querySelector('.question7');
-var question8El = document.querySelector('.question8');
-var question9El = document.querySelector('.question9');
-var question10El = document.querySelector('.question10');
-var choice1El = document.querySelector('.choice1');
-var choice2El = document.querySelector('.choice2');
-var choice3El = document.querySelector('.choice3');
-var choice4El = document.querySelector('.choice4');
-var scoreBoard;
-var timer;
-var highScores;
-var points = 0;
-var questions = 1;
+const quiz = [
+    {
+        question: "What does NaN mean in JavaScript?",
+        choices: [
+            "Not a number",
+            "Null",
+            "Undefined",
+            "None",
+        ],
+        answer: "Not a number",
+    },
+    {
+        question: "JavaScript allows the developer to make a webpage more interactive.",
+        choices: [
+            "True",
+            "False",
+        ],
+        answer: "True",
+    },
+];
+//-----Start Button----
+var startEl = document.querySelector("#container")
+var buttonEl = document.querySelector("#button")
 
-//Remove Are You Ready? and Start Button
-startEl.addEventListener('click', removeElement);
-choice1El.addEventListener('click', removeQ1, addPoints);
-choice3El.addEventListener('click', removeQ2, addPoints);
+//-----Global Variables for Quiz-----
+var quizcontainerEl = document.querySelector("#quiz");
+var questionsEl = document.querySelector('#question');
+var choicesEl  = document.querySelector('#choices');
+var scorecontainerEl = document.querySelector("#score");
+var resultscontainerEl = document.querySelector("#result")
+
+let currentQuestion = 0;
+let score = 0;
 
 
-//IF CONDITIONS
-if (points === 1) {
-        function removeQ1 () {
-}}
+//---------Start----------
 
-//FUNCTIONS for if statements
 function removeElement () {
-    containerEl.remove();
-    question1El.style.display = "";
-}
-function removeQ1 () {
-    question1El.remove();
-    question2El.style.display = "";
-}
-function removeQ2 () {
-    question2El.remove();
-    question3El.style.display = "";
-}
-function removeQ3 () {
-    question3El.remove();
-    question4El.style.display = "";
-}
-function removeQ4 () {
-    question4El.remove();
-    question5El.style.display = "";
-}
-function removeQ5 () {
-    question5El.remove();
-    question6El.style.display = "";
-}
-function removeQ6 () {
-    question6El.remove();
-    question7El.style.display = "";
-}
-function removeQ7 () {
-    question7El.remove();
-    question8El.style.display = "";
-}
-function removeQ8 () {
-    question8El.remove();
-    question9El.style.display = "";
-}
-function removeQ9 () {
-    question9El.remove();
-    question10El.style.display = "";
+    startEl.remove();
+    quizcontainerEl.style.display = "";
 }
 
-//ADD POINTS TO TRACK QUESTIONS
-function addPoints (event) {
-        points = points[i] + 1;
+buttonEl.addEventListener('click', removeElement);
+
+//----------Quiz----------
+
+function showQuestion() {
+    const question = quiz[currentQuestion];
+    questionsEl.innerHTML = question.question;
+
+    choicesEl.innerHTML = "";
+    for (let i = 0; i < question.choice.length; i++) {
+        const choice = question.choices[i];
+        const button = document.createElement("button");
+        button.innerText = choice;
+        button.addEventListener("click", function (){
+            if (choice === question.answer) {
+                score++;
+            }
+
+            currentQuestion++;
+
+            if (currentQuestion === quiz.length) {
+                showScore();
+                saveScore();
+            } else {
+                showQuestion();
+            }
+        });
+        choicesEl.appendChild(button);
+    }
 }

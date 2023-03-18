@@ -29,7 +29,8 @@ main {
 
 /* Container Formatting */
 
-.container {
+#container,
+#quiz {
     padding: 0;
     margin: 5px;
     text-align: center;
@@ -37,16 +38,7 @@ main {
 }
 
 /* Questions Formatting */
-.question1,
-.question2,
-.question3,
-.question4,
-.question5,
-.question6,
-.question7,
-.question8,
-.question9,
-.question10 {
+#question {
     display: flexbox;
     font-size: 25px;
     text-align: center;
@@ -70,26 +62,18 @@ button:hover {
 }
 
 /* Choices Formatting, Border */
-.choices {
+#choices {
     text-align: left;
     font-size: larger;
-}
-
-.choice1,
-.choice2,
-.choice3,
-.choice4 {
     border: goldenrod solid 3px;
     margin: 25px 0px 0px 0px;
     text-justify: ;
     padding: 8px;
     box-shadow: 2px 1px 1px goldenrod;
+    
 }
 
-.choice1:hover,
-.choice2:hover,
-.choice3:hover,
-.choice4:hover {
+#choices:hover {
     box-shadow: none;
     background-color: wheat;
 }

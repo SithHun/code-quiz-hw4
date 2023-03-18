@@ -9,121 +9,31 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
 
-<body>
-  <header class="header">
-    <div class="highscores">View Highscores</div>
-    <div class="timer">Time: </div>
-  </header>
+  <body>
+    <main>
+      <header class="header">
+        <p class="highscores">View Highscores</p>
+        <p class="timer">Time: </p>
+      </header>
 
-  <main>
-    <section class="container">
-      <h1 class="areyouready">Are You Ready?</h1>
-        <div class="start">
-          <button>Start</button>
-        </div>
-    </section>
-    <section class="question1" style="display:none">
-      <h1 class="questions">What is 'NaN' in JavaScript?</h1><br>
-        <div class="choices">
-          <p class="choice1">Not-a-Number</p>
-          <p class="choice2">The number 0</p>
-          <p class="choice3">Undefined</p>
-          <p class="choice4">Null</p>
-        </div>
-    </section>
-
-    <section class="question2" style="display:none">
-      <h1 class="questions">How does a function code looks like?</h1><br>
-        <div class="choices">
-          <p class="choice1">function []</p>
-          <p class="choice2">function {}</p>
-          <p class="choice3">function ()</p>
-          <p class="choice4">function =</p>
-        </div>
-    </section>
-
-    <section class="question3" style="display:none">
-      <h1 class="questions">Difference between const and var?</h1><br>
-        <div class="choices">
-          <p class="choice1">No such thing as a const in Javascript</p>
-          <p class="choice2">Const can't be re-declared or updated while var can be</p>
-          <p class="choice3">Var cannot be re-delcared, only const can be</p>
-          <p class="choice4">Const can be updated, can't be re-declared while var can do both</p>
-        </div>
-    </section>
-
-    <section class="question4" style="display:none">
-      <h1 class="questions">What does var stands for in JavaScript?</h1><br>
-        <div class="choices">
-          <p class="choice1">Doesn't stand for anything</p>
-          <p class="choice2">Visual Area</p>
-          <p class="choice3">Vars</p>
-          <p class="choice4">Variable</p>
-        </div>
-    </section>
-
-    <section class="question5" style="display:none">
-      <h1 class="questions">Enter Question Here</h1><br>
-        <div class="choices">
-          <p class="choice1">Choice 1</p>
-          <p class="choice2">Choice 2</p>
-          <p class="choice3">Choice 3</p>
-          <p class="choice4">Choice 4</p>
-        </div>
-    </section>
-
-    <section class="question6" style="display:none">
-      <h1 class="questions">Enter Question Here</h1><br>
-        <div class="choices">
-          <p class="choice1">Choice 1</p>
-          <p class="choice2">Choice 2</p>
-          <p class="choice3">Choice 3</p>
-          <p class="choice4">Choice 4</p>
-        </div>
-    </section>
-
-    <section class="question7" style="display:none">
-      <h1 class="questions">Enter Question Here</h1><br>
-        <div class="choices">
-          <p class="choice1">Choice 1</p>
-          <p class="choice2">Choice 2</p>
-          <p class="choice3">Choice 3</p>
-          <p class="choice4">Choice 4</p>
-        </div>
-    </section>
-
-    <section class="question8" style="display:none">
-      <h1 class="questions">Enter Question Here</h1><br>
-        <div class="choices">
-          <p class="choice1">Choice 1</p>
-          <p class="choice2">Choice 2</p>
-          <p class="choice3">Choice 3</p>
-          <p class="choice4">Choice 4</p>
-        </div>
-    </section>
-
-    <section class="question9" style="display:none">
-      <h1 class="questions">Enter Question Here</h1><br>
-        <div class="choices">
-          <p class="choice1">Choice 1</p>
-          <p class="choice2">Choice 2</p>
-          <p class="choice3">Choice 3</p>
-          <p class="choice4">Choice 4</p>
-        </div>
-    </section>
-
-    <section class="question10" style="display:none">
-      <h1 class="questions">Enter Question Here</h1><br>
-        <div class="choices">
-          <p class="choice1">Choice 1</p>
-          <p class="choice2">Choice 2</p>
-          <p class="choice3">Choice 3</p>
-          <p class="choice4">Choice 4</p>
-        </div>
-    </section>
-
-  </main>
-
-
+      <section id="container">
+        <h1 id="start">Are You Ready?</h1>
+        <button id="button">Start</button>
+      </section>
+      
+      <section id="quiz" style="display: none">
+        <h2>JavaScript Quiz</h2>
+        <div id="question"></div>
+        <div id="choices"></div>
+      </section>
+      
+      <section id="score" style="display: none">
+        <h2>Your Score</h2>
+        <p id="result"></p>
+        <button id="retry">Retry</button>
+      </section>
+    
+    
+    </main>
 <script src="assets/js/script.js"></script>
 </body>
