@@ -30,7 +30,9 @@ main {
 /* Container Formatting */
 
 #container,
-#quiz {
+#quiz,
+#score {
+    display: center;
     padding: 0;
     margin: 5px;
     text-align: center;
@@ -47,22 +49,24 @@ main {
 }
 
 /* Button Formatting */
-button {
+* button {
+    display: block;
+    justify-content: center;
     background-color: white;
-    width: 100px;
+    width: 300px;
     height: 30px;
     font-size: 25px;
     box-shadow: 2px 2px;
 }
 
-button:hover {
+* button:hover {
     box-shadow: none;
     background-color: wheat;
 
 }
 
 /* Choices Formatting, Border */
-#choices {
+/* #choices {
     text-align: left;
     font-size: larger;
     border: goldenrod solid 3px;
@@ -76,4 +80,4 @@ button:hover {
 #choices:hover {
     box-shadow: none;
     background-color: wheat;
-}
+} */
