@@ -1,90 +1,55 @@
-// const quiz = [
-//     {
-//         question: "What does NaN mean in JavaScript?",
-//         choices: [
-//             "Not a number",
-//             "Null",
-//             "Undefined",
-//             "None",
-//         ],
-//         answer: "Not a number",
-//     },
-//     {
-//         question: "JavaScript allows the developer to make a webpage more interactive.",
-//         choices: [
-//             "True",
-//             "False",
-//         ],
-//         answer: "True",
-//     },
-// ];
-// //-----Start Button----
-// var startEl = document.querySelector("#container")
-// var buttonEl = document.querySelector("#button")
 
-// //-----Global Variables for Quiz-----
-// var quizcontainerEl = document.querySelector("#quiz");
-// var questionsEl = document.querySelector('#question');
-// var choicesEl  = document.querySelector('#choices');
-// var scorecontainerEl = document.querySelector("#score");
-// var resultscontainerEl = document.querySelector("#result")
-
-// let currentQuestion = 0;
-// let score = 0;
-
-
-// //---------Start----------
-
-// function removeElement () {
-//     startEl.remove();
-//     quizcontainerEl.style.display = "";
-// }
-
-// buttonEl.addEventListener('click', removeElement, showQuestion);
-
-// //----------Quiz----------
-
-// function showQuestion() {
-//     const question = quiz[currentQuestion];
-//     questionsEl.innerHTML = question.question;
-
-//     choicesEl.innerHTML = "";
-//     for (let i = 0; i < question.choices.length; i++) {
-//         const choice = question.choices[i];
-//     }
-// }
-
-
-
-
-
-
-
-
-
-
+//------------Quiz Questions----------------
 const quiz = [
     {
       question: "What does NaN mean in JavaScript?",
       choices: [
-        "Not a number",
-        "Null",
-        "Undefined",
-        "None",
+        "not a number",
+        "null",
+        "undefined",
+        "none",
       ],
-      answer: "Not a number",
+      answer: "not a number",
     },
     {
       question: "JavaScript allows the developer to make a webpage more interactive.",
       choices: [
-        "True",
-        "False",
+        "true",
+        "false",
       ],
-      answer: "True",
+      answer: "true",
     },
+    {
+        question: "Which of these is how a JavaScript function code looks like?",
+        choices: [
+          "function {}",
+          "function []",
+          "function =",
+          "function ()",
+        ],
+        answer: "function ()",
+      },
+      {
+        question: "JavaScript is a computer intepreter that reads coding languages.",
+        choices: [
+          "true",
+          "false",
+        ],
+        answer: "false",
+      },
+      {
+        question: "Difference between var and const in JavaScript?",
+        choices: [
+          "var can't be re-declared",
+          "const is outdated",
+          "const can't be re-declared",
+          "there is no difference",
+        ],
+        answer: "const can't be re-declared",
+      },
   ];
   
-  //-----Start Button----
+  //-----Start Button-----
   const startEl = document.querySelector("#container");
   const buttonEl = document.querySelector("#button");
   
@@ -94,18 +59,37 @@ const quiz = [
   const choicesEl  = document.querySelector("#choices");
   const scorecontainerEl = document.querySelector("#score");
   const resultscontainerEl = document.querySelector("#result");
+  const timerEl = document.querySelector('.timer');
+  const clearEl = document.querySelector('#clear');
+  const startoverEl = document.querySelector('#retry');
+  const narrationEl = document.querySelector('#narration');
   
   let currentQuestion = 0;
   let score = 0;
+  let time = 75;
   
   //---------Start----------
   function removeElement() {
-    startEl.remove();
+    startEl.style.display = "none";
     quizcontainerEl.style.display = "";
+    narrationEl.innerText = "";
     showQuestion();
+    startTimer();
   }
   
   buttonEl.addEventListener('click', removeElement);
+
+  //-----------Timer----------
+  function startTimer() {
+    const timerId = setInterval(function() {
+      time--;
+      if (time === 0 || score > 0) {
+        clearInterval(timerId);
+        showResults();
+      }
+      timerEl.textContent = 'Time: ' + time;
+    }, 1000);
+  }
   
   //----------Quiz----------
   function showQuestion() {
@@ -118,8 +102,8 @@ const quiz = [
       const button = document.createElement("button");
       button.innerHTML = choice;
       button.addEventListener("click", function() {
-        if (choice === question.answer) {
-          score++;
+        if (choice !== question.answer) {
+          time -= 10;
         }
         currentQuestion++;
         if (currentQuestion < quiz.length) {
@@ -132,22 +116,44 @@ const quiz = [
     }
   }
   
+  //------------Show End Results------------
   function showResults() {
+    score = time;
     quizcontainerEl.style.display = "none";
     scorecontainerEl.style.display = "";
-    resultscontainerEl.innerHTML = `Your score is ${score}`;
+    resultscontainerEl.innerText = "Your score is " + score;
     localStorage.setItem("highscore", score);
   }
   
   //------------High Scores------------
   const highscoresEl = document.querySelector(".highscores");
   
-  highscoresEl.addEventListener("click", function() {
-    const highscore = localStorage.getItem("highscore");
-    if (highscore) {
-      alert(`Your high score is ${highscore}`);
-    } else {
-      alert("There are no high scores yet.");
-    }
-  });
-  
+  highscoresEl.addEventListener("click", view);
+
+  function view () {
+    window.location.href = "leaderboard.html";
+  }
+
+//--------------Clear Local Storage-------------
+clearEl.addEventListener('click', clear);
+
+function clear() {
+    localStorage.clear();
+    score = 0;
+    resultscontainerEl.innerText = "Your score is " + score;
+}
+
+//------------Start Over--------------
+startoverEl.addEventListener('click', retry);
+
+function retry() {
+    scorecontainerEl.style.display = "none";
+    startEl.style.display = "";
+    score = 0;
+    time = 75;
+    currentQuestion = 0;
+    timerEl.innerText = "Timer: 75";
+
+}
+
+//----------Wrong/Correct Messages----------

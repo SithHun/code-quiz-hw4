@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Header, Title, Href to CSS -->
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,8 +11,8 @@
   <body>
     <main>
       <header class="header">
-        <p class="highscores">View Highscores</p>
-        <p class="timer">Time: </p>
+        <p class="highscores highscores2">View Highscores</p>
+        <p class="timer">Time: 75</p>
       </header>
 
       <section id="container">
@@ -30,8 +29,14 @@
       <section id="score" style="display: none">
         <h2></h2>
         <p id="result"></p>
-        <button id="retry">Retry</button>
+        <button id="retry">Start Over</button>
+        <button id="clear">Clear Score</button>
       </section>
+
+      <footer id="footer">
+        <p id="splitter">-----------------------------------------------------------------------</p>
+        <p id="narration">Timer will deduct by 10 seconds for every wrong answers</p>
+      </footer>
     
     
     </main>
