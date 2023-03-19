@@ -1,4 +1,3 @@
-
 //------------Quiz Questions----------------
 const quiz = [
     {
@@ -70,13 +69,6 @@ const leaderboardEl = document.getElementById('leaderboard');
 let currentQuestion = 0;
 let score = 0;
 let time = 75;
-
-//-----------Highscores variable------------
-const li1El = document.getElementById('1');
-const li2El = document.getElementById('2');
-const li3El = document.getElementById('3');
-const li4El = document.getElementById('4');
-const li5El = document.getElementById('5');
   
 //---------Start----------
 function removeElement() {
@@ -135,6 +127,7 @@ function showResults() {
     localStorage.setItem("highscore", score);
     leaderboardEl.style.display = "";
     narrationEl.innerText = "Leaderboard";
+    narrationEl.style.display = "";
   }
   
 //------------High Scores------------
@@ -146,22 +139,14 @@ function view () {
     window.location.href = "leaderboard.html";
   }
 
-//--------------Clear Local Storage-------------
-// clearEl.addEventListener('click', clear);
-
-// function clear() {
-//     localStorage.clear();
-//     score = 0;
-//     resultscontainerEl.innerText = "Your score is " + score;
-//     timerEl.innerText = "Time: ";
-// }
-
 //------------Start Over--------------
 startoverEl.addEventListener('click', retry);
 
 function retry() {
     scorecontainerEl.style.display = "none";
+    leaderboardEl.style.display = "none";
     startEl.style.display = "";
+    narrationEl.textContent = "Timer will deduct by 10 seconds for every wrong answers";
     score = 0;
     time = 75;
     currentQuestion = 0;

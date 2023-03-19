@@ -13,6 +13,7 @@ if (highscore) {
     li.textContent = "There are no high scores yet.";
     scoresEl.appendChild(li);
     }
+
 //Clear Function
 const clearEl = document.querySelector('#clear');
 clearEl.addEventListener('click', clear);
@@ -20,10 +21,14 @@ const leaderboardEl = document.querySelector('#buttonleaderboard');
 
 function clear() {
     if (highscore > 0) {
+        const li = document.createElement("li");
+        scoresEl.children[0].remove();
+        li.textContent = "There are no high scores yet.";
+        scoresEl.appendChild(li);
         localStorage.clear();
-        leaderboardEl.closest('li').remove();
     }
 }
+
 //Go Back Function
 const gobackEl = document.querySelector('#back');
 

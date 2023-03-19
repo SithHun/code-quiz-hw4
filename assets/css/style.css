@@ -106,7 +106,7 @@ footer {
 #scoreslist {
     font-size: large;
     text-align: left;
-    margin: 0px 155px 0px 155px;
+    margin: 0px 155px 50px 155px;
     list-style-type: none;
     border: black solid 1px;
 }
@@ -115,23 +115,5 @@ footer {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    align-content: center;
-    flex-direction: row;
+    margin: auto;
 }
-
-/* Choices Formatting, Border */
-/* #choices {
-    text-align: left;
-    font-size: larger;
-    border: goldenrod solid 3px;
-    margin: 25px 0px 0px 0px;
-    text-justify: ;
-    padding: 8px;
-    box-shadow: 2px 1px 1px goldenrod;
-    
-}
-
-#choices:hover {
-    box-shadow: none;
-    background-color: wheat;
-} */
