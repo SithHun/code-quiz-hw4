@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -19,38 +19,45 @@
         <h1 id="start">Are You Ready?</h1>
         <button id="button">Start</button>
       </section>
-      
+
       <section id="quiz" style="display: none">
         <h2></h2>
         <div id="question"></div>
         <div id="choices"></div>
       </section>
-      
+
       <section id="score" style="display: none">
         <h2></h2>
         <p id="result"></p>
         <form id="form">
-          <input id="initials" type="text">
-          <input id="submission" type="submit">
+          <input id="initials" placeholder="Your intials go here" type="text" />
+          <input id="submission" type="submit" />
         </form>
         <button id="retry">Start Over</button>
         <!-- <button id="clear">Clear Score</button> -->
       </section>
 
       <footer id="footer">
-        <p id="splitter">-----------------------------------------------------------------------</p>
-        <p id="narration">Timer will deduct by 10 seconds for every wrong answers</p>
-        <ul id="leaderboard" style="display:none">
-          <li>1. </li>
-          <li>2. </li>
-          <li>3. </li>
-          <li>4. </li>
-          <li>5. </li>
+        <p id="splitter">
+          -----------------------------------------------------------------------
+        </p>
+        <p id="narration">
+          Timer will deduct by 10 seconds for every wrong answers
+        </p>
+        <ul id="leaderboard" style="display: none">
+          <li>1.</li>
+          <br />
+          <li>2.</li>
+          <br />
+          <li>3.</li>
+          <br />
+          <li>4.</li>
+          <br />
+          <li>5.</li>
         </ul>
         <!-- <button id="clear" style="display:none">Clear Score</button> -->
       </footer>
-    
-    
     </main>
-<script src="assets/js/script.js"></script>
-</body>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

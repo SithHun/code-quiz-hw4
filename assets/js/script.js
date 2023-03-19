@@ -49,27 +49,37 @@ const quiz = [
       },
   ];
   
-  //-----Start Button-----
-  const startEl = document.querySelector("#container");
-  const buttonEl = document.querySelector("#button");
+//-----Start Button-----
+const startEl = document.querySelector("#container");
+const buttonEl = document.querySelector("#button");
   
-  //-----Global Variables for Quiz-----
-  const quizcontainerEl = document.querySelector("#quiz");
-  const questionsEl = document.querySelector("#question");
-  const choicesEl  = document.querySelector("#choices");
-  const scorecontainerEl = document.querySelector("#score");
-  const resultscontainerEl = document.querySelector("#result");
-  const timerEl = document.querySelector('.timer');
-  const clearEl = document.querySelector('#clear');
-  const startoverEl = document.querySelector('#retry');
-  const narrationEl = document.querySelector('#narration');
+//-----Global Variables for Quiz-----
+const quizcontainerEl = document.querySelector("#quiz");
+const questionsEl = document.querySelector("#question");
+const choicesEl  = document.querySelector("#choices");
+const scorecontainerEl = document.querySelector("#score");
+const resultscontainerEl = document.querySelector("#result");
+const timerEl = document.querySelector('.timer');
+const clearEl = document.querySelector('#clear');
+const startoverEl = document.querySelector('#retry');
+const narrationEl = document.querySelector('#narration');
+const submissionEl = document.getElementById('submission');
+const formEl = document.getElementById('form');
+const leaderboardEl = document.getElementById('leaderboard');
   
-  let currentQuestion = 0;
-  let score = 0;
-  let time = 75;
+let currentQuestion = 0;
+let score = 0;
+let time = 75;
+
+//-----------Highscores variable------------
+const li1El = document.getElementById('1');
+const li2El = document.getElementById('2');
+const li3El = document.getElementById('3');
+const li4El = document.getElementById('4');
+const li5El = document.getElementById('5');
   
-  //---------Start----------
-  function removeElement() {
+//---------Start----------
+function removeElement() {
     startEl.style.display = "none";
     quizcontainerEl.style.display = "";
     narrationEl.innerText = "";
@@ -79,8 +89,8 @@ const quiz = [
   
   buttonEl.addEventListener('click', removeElement);
 
-  //-----------Timer----------
-  function startTimer() {
+//-----------Timer----------
+function startTimer() {
     const timerId = setInterval(function() {
       time--;
       if (time === 0 || score > 0) {
@@ -91,8 +101,8 @@ const quiz = [
     }, 1000);
   }
   
-  //----------Quiz----------
-  function showQuestion() {
+//----------Quiz----------
+function showQuestion() {
     const question = quiz[currentQuestion];
     questionsEl.innerHTML = question.question;
   
@@ -116,33 +126,35 @@ const quiz = [
     }
   }
   
-  //------------Show End Results------------
-  function showResults() {
+//------------Show End Results------------
+function showResults() {
     score = time;
     quizcontainerEl.style.display = "none";
     scorecontainerEl.style.display = "";
     resultscontainerEl.innerText = "Your score is " + score;
     localStorage.setItem("highscore", score);
+    leaderboardEl.style.display = "";
+    narrationEl.innerText = "Leaderboard";
   }
   
-  //------------High Scores------------
-  const highscoresEl = document.querySelector(".highscores");
+//------------High Scores------------
+const highscoresEl = document.querySelector(".highscores");
   
-  highscoresEl.addEventListener("click", view);
+highscoresEl.addEventListener("click", view);
 
-  function view () {
+function view () {
     window.location.href = "leaderboard.html";
   }
 
 //--------------Clear Local Storage-------------
-clearEl.addEventListener('click', clear);
+// clearEl.addEventListener('click', clear);
 
-function clear() {
-    localStorage.clear();
-    score = 0;
-    resultscontainerEl.innerText = "Your score is " + score;
-    timerEl.innerText = "Time: ";
-}
+// function clear() {
+//     localStorage.clear();
+//     score = 0;
+//     resultscontainerEl.innerText = "Your score is " + score;
+//     timerEl.innerText = "Time: ";
+// }
 
 //------------Start Over--------------
 startoverEl.addEventListener('click', retry);
@@ -158,16 +170,10 @@ function retry() {
 }
 
 //----------Leaderboard Submission----------
-const submissionEl = document.getElementById('submission');
-const formEl = document.getElementById('form');
-const leaderboardEl = document.getElementById('leaderboard');
-
 submissionEl.addEventListener('click', submit);
 
-function submit() {
+function submit(event) {
     event.preventDefault();
     formEl.style.display = "none";
-    resultscontainerEl.style.display = "none";
     leaderboardEl.style.display = "";
-
 }

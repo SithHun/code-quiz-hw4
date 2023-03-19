@@ -9,26 +9,16 @@
   </head>
   
   
-  <body>
-    <h1>High Scores</h1>
-    <ul id="scores">
-    </ul>
-    <script>
-      const scoresEl = document.querySelector("#scores");
+<body>
+        <h1 class="scores">High Scores</h1>
+            <ul id="scoreslist">
+            </ul>
+        <section id="buttonleaderboard">
+            <button id="back">Go Back</button>
+            <button id="clear">Clear Score</button>
+        </section>
 
-      // Retrieve high score from local storage
-      const highscore = localStorage.getItem("highscore");
-
-      // If there is a high score, add it to the leaderboard
-      if (highscore) {
-        const li = document.createElement("li");
-        li.textContent = `Your high score is ${highscore}`;
-        scoresEl.appendChild(li);
-      } else {
-        const li = document.createElement("li");
-        li.textContent = "There are no high scores yet.";
-        scoresEl.appendChild(li);
-      }
-    </script>
-  </body>
+<script src="assets/js/leaderboard.js">
+</script>
+</body>
 </html>
